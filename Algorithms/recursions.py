@@ -88,6 +88,21 @@ def faculty(n):
     else:
         return n*faculty(n-1)
 
+''' tail_recursive_faculty
+    Tail recursion is a thing in recursive functions. What it means is that we never traverse up again, rather we always
+    push our work to our tail and once we reach the bottom we return it. In the faculty function above, faculty(n), we 
+    go down till we reach n = 1 and then we traverse up again, merging together the factors. In tail_recursice_faculty we
+    optimize so that when we reach the bottom we are done. In practice the time complexity is similar to that of iteration.
+    Note: In functional languages such as Haskell we do not have iteration and so tail_recursion is the functional answer to
+    iteration.
+'''
+def tail_recursive_faculty(n,packed_mult = 1):
+    if(n == 1 or n == 0):
+        return packed_mult
+    else:
+        return tail_recursive_faculty(n-1,packed_mult*n)
+
+
 # A recursive function that conceptualizes multiplication via addition. Instead of doing the prebuilt multiplication
 # algorithm this algorithm simply makes use of addition for as many times as needed for a number, and so we apply the
 # factor2 as a term for factor1 times, and if factor1 is negative we first make a sign switch in the outer parenthesis.
