@@ -113,6 +113,10 @@ if __name__ == "__main__":
 
         assert recurser.faculty(5) == 120
         assert recurser.faculty(0) == 1
+        assert recurser.tail_recursive_faculty(0) == 1
+        assert recurser.tail_recursive_faculty(5) == 120
+        assert recurser.tail_recursive_faculty(20) == recurser.faculty(20)
+
         assert recurser.how_far_from_palindrome("Hello") == 2
         assert recurser.how_far_from_palindrome("abba") == 0
         assert recurser.how_far_from_palindrome("abc") == 1
