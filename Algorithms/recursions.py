@@ -105,6 +105,20 @@ def multiplication(factor1,factor2):
     else: # factor2 negative
         return -(multiplication(factor1, -factor2))
 
+# Returns Levehnstein distance for how far a word W is from being a palindrome:
+def how_far_from_palindrome(W):
+    sum = 0
+    if(len(W) <= 1):
+        return sum
+    else:
+        if(W[0] == W[-1]):
+            return how_far_from_palindrome(W[1:-1])
+        else:
+            return how_far_from_palindrome(W[1:-1]) + 1
 
-
-
+def merge_lists(l1,l2):
+    if(l1 == []):
+        return l2
+    else:
+        l2.insert(0,l1.pop())
+        return merge_lists(l1, l2)
