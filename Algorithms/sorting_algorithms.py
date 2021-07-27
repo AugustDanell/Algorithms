@@ -14,11 +14,13 @@
 import math
 import shuffling_algorithms as shuffler
 
-# simple_bubble_sort
-# A simple bubble sort that iterates through the list with no optimizations and always flips elements elementwise so that
-# the biggest element come to the right. Obviously the sorting space can be reduced by one for each iteration, as the biggest
-# number will flip to the rightmost spot, however, this bubble sort makes no such optimization and does some redundant
-# operations in favour of simplicity.
+'''
+  simple_bubble_sort
+  A simple bubble sort that iterates through the list with no optimizations and always flips elements elementwise so that
+  the biggest element come to the right. Obviously the sorting space can be reduced by one for each iteration, as the biggest
+  number will flip to the rightmost spot, however, this bubble sort makes no such optimization and does some redundant
+  operations in favour of simplicity.
+'''
 
 def simple_bubble_sort(list):
     n = len(list)
@@ -28,9 +30,10 @@ def simple_bubble_sort(list):
                 list[j],list[j+1] = list[j+1],list[j]
 
     return list
-
-# opt_bubble_sort
-# Very similar to the OG bubble sort above but this one makes an optimization in the inner loop.
+'''
+   opt_bubble_sort
+   Very similar to the OG bubble sort above but this one makes an optimization in the inner loop.
+'''
 
 def opt_bubble_sort(list):
     n = len(list)
@@ -41,12 +44,14 @@ def opt_bubble_sort(list):
 
     return list
 
-# selection_sort
-# Selection sort is in my opinion one of the simpler sorting algorithms boths conceptually as well as concretely.
-# The sorting algorithm makes two iterations, one outer, i = [0, length(list)], and one inner, j = [i+1, length(list).
-# Conceptually what we are doing is moving to place i and scouting through the list for better candidates, that is of
-# course, elements smaller than i. This is done at a complexity that is O(n^2), naturally, because the elementary operation
-# can be the assigning of a minimum index and so the entire procedure will be done in: O(n^2).
+'''
+   selection_sort
+   Selection sort is in my opinion one of the simpler sorting algorithms boths conceptually as well as concretely.
+   The sorting algorithm makes two iterations, one outer, i = [0, length(list)], and one inner, j = [i+1, length(list).
+   Conceptually what we are doing is moving to place i and scouting through the list for better candidates, that is of
+   course, elements smaller than i. This is done at a complexity that is O(n^2), naturally, because the elementary operation
+   can be the assigning of a minimum index and so the entire procedure will be done in: O(n^2).
+'''
 
 def selection_sort(list):
     n = len(list)
@@ -60,12 +65,13 @@ def selection_sort(list):
 
     return list
 
-
-# insertion_sort()
-# An Insertion_sort uses a sorting mechanism in which we take an element i, which we iterate through and in this implementation
-# we call it 'comparing_element'. This element is put into an own loop where we iterate down to the buttom, swapping elements as we go.
-# We have to parts of the list, one which is sorted and one which is not, and we work our way through the unsorted part.
-# Also in O(n^2)
+'''
+   insertion_sort()
+   An Insertion_sort uses a sorting mechanism in which we take an element i, which we iterate through and in this implementation
+   we call it 'comparing_element'. This element is put into an own loop where we iterate down to the buttom, swapping elements as we go.
+   We have to parts of the list, one which is sorted and one which is not, and we work our way through the unsorted part.
+   Also in O(n^2)
+'''
 
 def insertion_sort(list):
     n = len(list)
@@ -81,12 +87,14 @@ def insertion_sort(list):
 
     return list
 
-# merge_sort()
-# The merge_sort is a divide and conquer algorithm operating in O(n log n), it breaks down the problem instance into its smallest component and
-# from there reconstructs it, making good use of the fact that all of the sublists of the initial list are already ordered and so we can compare
-# them list-wise. This implementation uses a small optimization in that the length of a problem can be passed down as an argument and so we do not
-# have to measure the length for each recursion, this is done automatically for us, making use of what we have.
-# Parts of the implementation from: https://www.geeksforgeeks.org/merge-sort/
+'''
+   merge_sort()
+   The merge_sort is a divide and conquer algorithm operating in O(n log n), it breaks down the problem instance into its smallest component and
+   from there reconstructs it, making good use of the fact that all of the sublists of the initial list are already ordered and so we can compare
+   them list-wise. This implementation uses a small optimization in that the length of a problem can be passed down as an argument and so we do not
+   have to measure the length for each recursion, this is done automatically for us, making use of what we have.
+   Parts of the implementation from: https://www.geeksforgeeks.org/merge-sort/
+'''
 
 def merge_sort(list, length = -1):
     if(length == -1):
@@ -125,11 +133,13 @@ def merge_sort(list, length = -1):
             r += 1
             k += 1
 
-# median_of_three()
-# This is a helper function for a quick sorting algorithm. The sorting algorithm builds upon the idea of using pivots,
-# these pivots should be in the middle for an optimal effect. That is if we have for example a shuffling of [1,2,3,4,5],
-# the best pivot would be 3. The median_of_three functions selects three values and takes the middle value of these, so
-# as to provide as a good pivot as possible with three current elements.
+'''
+   median_of_three()
+   This is a helper function for a quick sorting algorithm. The sorting algorithm builds upon the idea of using pivots,
+   these pivots should be in the middle for an optimal effect. That is if we have for example a shuffling of [1,2,3,4,5],
+   the best pivot would be 3. The median_of_three functions selects three values and takes the middle value of these, so
+   as to provide as a good pivot as possible with three current elements.
+'''
 
 def median_of_three(l, length = -1):
     length = len(l)
@@ -165,12 +175,13 @@ def start_element(l = [], start = -1, end = -1):
 def end_element(l = [], start = -1, end = -1):
     return end
 
-# quick_sort()
-# A sorting algorithm where a pivot is chosen and where we "meet in the middle". That is, we iterate through an array
-# with an index that is coming from two directions, and for each index we compare the element there with a pivot element.
-# This quicksort is a generalized quicksort that takes in as a parameter a function that determines how to select the
-# ever so important pivot element.
-
+'''
+   quick_sort()
+   A sorting algorithm where a pivot is chosen and where we "meet in the middle". That is, we iterate through an array
+   with an index that is coming from two directions, and for each index we compare the element there with a pivot element.
+   This quicksort is a generalized quicksort that takes in as a parameter a function that determines how to select the
+   ever so important pivot element.
+'''
 
 def partition(l, f, start, end):
     # 1.
@@ -230,9 +241,11 @@ def quick_sort(l, f = start_element, start = -1, end = -1):
     if p < end:
         quick_sort(l,f,p+1,end)
 
-# naive_quick_sort()
-# A Naive implementation of the quicksort I found online and worked on.
-# Worked on from: https://stackoverflow.com/questions/18262306/quicksort-with-python
+'''
+   naive_quick_sort()
+   A Naive implementation of the quicksort I found online and worked on.
+   Worked on from: https://stackoverflow.com/questions/18262306/quicksort-with-python
+'''
 
 def naive_quick_sort(l, length = -1):
     smaller_than_pivot = []
@@ -259,17 +272,18 @@ def naive_quick_sort(l, length = -1):
         return naive_quick_sort(smaller_than_pivot, length1) + equal_to_pivot + naive_quick_sort(greater_than_pivot, length2)
     else:
         return l
-
-# dumb_dumb_sort()
-# The dumb_dumb_sort is a sorting algorithm akin to taking a deck of cards and tossing them sky high for them to land,
-# to repeat this process again and time again, until the deck finally lands in a sorted way. It is a dumb algorithm
-# to use all permutations and randomly iterate them until a match is find but this algorithm .. This algorihm is even
-# dumber, still, see in a problem size of 5 for instance there are !5 = 120 permutations, and so a permutation sort will
-# exhaust those. The dumb_dumb_sort may even reaccess a previously accessed permutation, thus, another dumb has to be
-# prefixed just to make it clear that this algorithm is indeed very dumb and if you want to see the extent of its dumbness
-# you can use it on a problem instance greater than 10, and then go for a run.
-# Even the best case scenario is bad since even if it by a stroke of luck makes the right permutation first time,
-# something that is of probabilitiy E(x) = 1/n!, it will still be in atleast linear time due to the fisher yates algoritm.
+'''
+   dumb_dumb_sort()
+   The dumb_dumb_sort is a sorting algorithm akin to taking a deck of cards and tossing them sky high for them to land,
+   to repeat this process again and time again, until the deck finally lands in a sorted way. It is a dumb algorithm
+   to use all permutations and randomly iterate them until a match is find but this algorithm .. This algorihm is even
+   dumber, still, see in a problem size of 5 for instance there are !5 = 120 permutations, and so a permutation sort will
+   exhaust those. The dumb_dumb_sort may even reaccess a previously accessed permutation, thus, another dumb has to be
+   prefixed just to make it clear that this algorithm is indeed very dumb and if you want to see the extent of its dumbness
+   you can use it on a problem instance greater than 10, and then go for a run.
+   Even the best case scenario is bad since even if it by a stroke of luck makes the right permutation first time,
+   something that is of probabilitiy E(x) = 1/n!, it will still be in atleast linear time due to the fisher yates algoritm.
+'''
 
 def Sorted(l):
     sorted = True
